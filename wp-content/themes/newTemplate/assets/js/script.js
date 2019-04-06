@@ -1,1 +1,1 @@
-console.log('ok javascript działa')
+console.log('ok javascript works')
