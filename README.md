@@ -29,4 +29,4 @@ All dependencies will be downloaded - mysql: 5.7, latest phpmyadmin and wordpres
 ### How to watch the generated production?
 * phpMyAdmin ```http://localhost:8080``` (user root, password test)
 * wordpress ```http://localhost```
-* wp-admin ```http://localhost/wp-admin``` (user and password is test)
+* wp-admin ```http://localhost/wp-admin``` (user and password is a test)
