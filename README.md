@@ -124,3 +124,77 @@ yarn dump
 * wordpress `http://localhost:3000`
 * wp-admin `http://localhost/wp-admin` (user/password test)
 * phpMyAdmin `http://localhost:8001` (user root, password test)
+
+## Docker Compose
+Example configuration file `docker-compose.yml`:
+```yml
+version: '3.7'
+services:
+
+  db:
+    image: mysql:5.7
+    container_name: mysql
+    volumes:
+      - ./database:/docker-entrypoint-initdb.d
+    ports:
+      - 3306:3306
+    restart: on-failure
+    environment:
+      MYSQL_ROOT_PASSWORD: test
+      MYSQL_DATABASE: wp
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    depends_on:
+      - db
+    ports:
+      - 8001:80
+    environment:
+      MYSQL_ROOT_PASSOWRD: test
+
+  app:
+    container_name: wordpress
+    build:
+      context: ./docker/wordpress/
+      dockerfile: wordpress.Dockerfile
+    depends_on:
+      - db
+    links:
+      - db:mysql
+    ports:
+      - 80:80
+    restart: on-failure
+    volumes:
+      - ./wp-content/languages:/var/www/html/wp-content/languages
+      - ./wp-content/uploads:/var/www/html/wp-content/uploads
+      - ./wp-content/themes/:/var/www/html/wp-content/themes
+      - ./wp-content/plugins:/var/www/html/wp-content/plugins
+      - ./wp-content:/var/www/html/wp-content
+    environment:
+      WORDPRESS_DB_NAME: wp
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: test
+      WORDPRESS_DEBUG: 1
+      XDEBUG_CONFIG: remote_host=host.docker.internal
+```
+
+## Visual Studio Code
+Example configuration file `.vscode/launch.json`:
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Listen for XDebug",
+      "type": "php",
+      "request": "launch",
+      "port": 9000,
+      "pathMappings": {
+        "/var/www/html": "${workspaceFolder}"
+      },
+    }
+  ]
+}
+```
