@@ -1,13 +1,12 @@
-
 <?php
 
 get_header();
+
 
 echo '<main id="main" class="container" role="main">';
 
 if (have_posts()) :
     while (have_posts()) : the_post();
-
 
 if (is_home()) {
 
@@ -17,7 +16,7 @@ if (is_home()) {
 
 <?php
 
-    $content = get_the_content('[ zobacz więcej ]');
+    $content = get_the_content('[ see more ]');
     $trimmed_content = wp_trim_words($content, 100, '');
     echo $content;
 
@@ -43,7 +42,7 @@ the_posts_pagination(array(
 ));
 
 else :
-    echo '<p>Brak postów</p>';
+    echo '<p>No posts</p>';
 
 endif;
 
