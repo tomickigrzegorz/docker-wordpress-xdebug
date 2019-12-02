@@ -40,7 +40,7 @@ docker
 ```
 > configuration for wordpress and xdebug
 
-```json
+```bash
 dump
 ```
 > folder into which the database is being dumped `yarn dump`
@@ -103,7 +103,7 @@ docker-compose up
 ```bash
 yarn docker:down
 ```
-> all containers removed
+> all docker containers will be removed
 
 ```bash
 yarn dev
@@ -113,7 +113,7 @@ yarn dev
 ```bash
 yarn prod
 ```
-> finally generated `css/js` files with separate portions, in the same folder as dev `wp-content/themes/assets/(css|js)`
+> finally generated `css/js` files with separate portions, in the same folder as dev `wp-content/themes/assets/(css|js)`, but this time they are compressed
 
 ```bash
 yarn dump
