@@ -8,6 +8,8 @@ The environment consist of:
 - phpmyadmin
 - webpack 4
 
+> You should also install the plugin [PHP Debug](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug)
+
 Each change in the scss/js files loads the generated css and js into wordpress and automatically refreshes the page view.
 
 Main folders are:  
