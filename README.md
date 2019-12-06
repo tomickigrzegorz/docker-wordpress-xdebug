@@ -81,6 +81,10 @@ wp-content
 ```
 > new template, the most important file `themename_styles.scripts.php` he gets the css and js generated and places it in a wordpress template
 
+## VSCODE + XDebug
+
+![Screenshot1](https://github.com/tomik23/docker-wordpress-xdebug/blob/master/screens/vscode-xdebug.png)
+
 ## Build the application
 Install the Docker, manual can be found here ->
 [Docker](https://www.docker.com/get-started).
