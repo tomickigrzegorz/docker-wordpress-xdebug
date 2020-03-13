@@ -52,7 +52,7 @@ module.exports = merge(baseConfig, {
         proxy: 'http://localhost',
         reloadDelay: 2000, // wystarczajacy czas na wygenerowanie css/js
         files: [
-          './wp-content/themes/newTemplate/**/*.php',
+          './wordpress/wp-content/themes/newTemplate/**/*.php',
           './frontend/**/*.js',
           './frontend/**/*.scss',
         ],

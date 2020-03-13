@@ -107,7 +107,7 @@ docker-compose up
 > all dependencies will be incurred, this may take a while.
 
 ```bash
-yarn docker:down
+yarn down
 ```
 > all docker containers will be removed
 

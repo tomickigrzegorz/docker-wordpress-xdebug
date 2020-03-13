@@ -1,6 +1,10 @@
 node_modules
 uploads
 assets
+wp-includes/
+wp-admin/
+languages/
+wp-content/themes/kodyWiG/assets
 twentynineteen
 twentyseventeen
 twentysixteen

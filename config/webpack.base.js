@@ -9,7 +9,7 @@ const entry = {
 
 // output
 const output = {
-  path: path.resolve(__dirname, '../wp-content/themes/newTemplate/assets/'),
+  path: path.resolve(__dirname, '../wordpress/wp-content/themes/newTemplate/assets/'),
   filename: 'js/[name]-[hash].js',
 };
 
