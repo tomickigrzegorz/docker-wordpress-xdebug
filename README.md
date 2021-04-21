@@ -6,7 +6,7 @@ The environment consist of:
 - XDebug
 - mysql 5.7
 - phpmyadmin
-- webpack 4
+- webpack 5
 
 > You should also install the plugin [PHP Debug](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug)
 
@@ -24,7 +24,7 @@ Main folders are:
 config
 ├── mysqldump.js
 ├── postcss.config.js
-├── webpack.base.js
+├── webpack.common.js
 ├── webpack.dev.js
 └── webpack.prod.js
 ```
