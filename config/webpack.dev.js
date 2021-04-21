@@ -1,50 +1,30 @@
 const webpack = require('webpack');
-const path = require('path');
-const merge = require('webpack-merge');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-const baseConfig = require('./webpack.base.js');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const baseConfig = require('./webpack.common.js');
+const { merge } = require('webpack-merge');
 
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const { cssLoaders } = require('./util');
 
 module.exports = merge(baseConfig, {
   mode: 'development',
+  target: 'web',
   devServer: {
     writeToDisk: true,
+    inline: true,
+    stats: 'errors-only',
   },
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {
         test: /\.(css|sass|scss)$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 2,
-              sourceMap: true,
-            },
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true,
-            },
-          },
-        ],
+        use: ['style-loader', ...cssLoaders],
       },
     ],
   },
   plugins: [
-    new CleanWebpackPlugin({
-      dry: false,
-      verbose: true
-    }),
     new webpack.DefinePlugin({
       PRODUCTION: JSON.stringify(false),
-    }),
-    new MiniCssExtractPlugin({
-      filename: 'css/[name]-[hash].css',
     }),
     new BrowserSyncPlugin(
       {
